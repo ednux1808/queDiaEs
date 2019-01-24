@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Que dia es?</title>
+        <style>
+            .titleApp{ font-size: 32px; color: #666666;}
+            .box{ height: 10px; width: 100%;}
+        </style>
+    </h:head>
+    <h:body>
+        <center>
+            <h1 class="titleApp">Que dia de la semana es?</h1>
+        </center>
+        <br />
+
+        <center>
+            <h:form>
+
+                <div><p:outputLabel value="Dia     " />
+                    <p:inputText  id="campoDia" value="#{aplicationsMetodos.date.dia}"/></div>
+                <div class="box"></div>
+                <div> <p:outputLabel value="Mes    " />
+                    <p:inputText  id="campoMes" value="#{aplicationsMetodos.date.mes}"/></div>
+                <div class="box"></div>
+                <div><p:outputLabel value="Año    " />
+                    <p:inputText  id="campoYear" value="#{aplicationsMetodos.date.año}"/></div>
+                <div class="box"></div>
+                <div><p:outputLabel value="El dia de la semana es #{aplicationsMetodos.date.diaSemana}" id="respuesta" /></div>
+               
+
+                <div><p:commandButton value="enviar"
+                                      actionListener="#{controllApp.antenderSolicitud()}"
+                                      ajax="true" 
+                                      update="respuesta"/></div>
+                
+                 <p:commandButton value="Limpiar"
+                                  actionListener="#{aplicationsMetodos.clear()}"
+                                  ajax="true"
+                                                 update="campoDia,campoMes,campoYear,respuesta"/>
+
+            </h:form>
+        </center>
+
+    </h:body>
+</html>
+
